@@ -1,0 +1,20 @@
+.search {
+   background-color: grey;
+}
+
+.search__container {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+}
+
+.filter__container {
+  margin: 10px;
+  margin-top: 80px;
+  margin-right: 80px;
+}
+
+.cards__container {
+  margin: auto;
+  width: 100%;
+}

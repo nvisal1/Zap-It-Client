@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseComponent implements OnInit {
 
+  arr = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3];
+
   constructor() { }
 
   ngOnInit() {

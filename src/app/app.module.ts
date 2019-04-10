@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
@@ -11,6 +10,13 @@ import { RegisterComponent } from './authentication/pages/register/register.comp
 import { UserComponent } from './profile/pages/user/user.component';
 import { OtherComponent } from './profile/pages/other/other.component';
 import { BrowseComponent } from './browse/pages/browse/browse.component';
+import { LoginComponent } from './authentication/pages/login/login.component';
+import { BrowseCardComponent } from './browse/components/browse-card/browse-card.component';
+import { FilterComponent } from './browse/components/filter/filter.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { ProfileComponent } from './profile/components/profile/profile.component';
+import { ProjectsComponent } from './profile/components/projects/projects.component';
+import { EnvironmentsComponent } from './profile/components/environments/environments.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,13 @@ import { BrowseComponent } from './browse/pages/browse/browse.component';
     RegisterComponent,
     UserComponent,
     OtherComponent,
-    BrowseComponent
+    BrowseComponent,
+    BrowseCardComponent,
+    FilterComponent,
+    NavbarComponent,
+    ProfileComponent,
+    ProjectsComponent,
+    EnvironmentsComponent
   ],
   imports: [
     BrowserModule,

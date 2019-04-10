@@ -1,3 +1,11 @@
-<p>
-  browse works!
-</p>
+<div class="search">
+    <div class="search__container">
+      <div class="filter__container">
+        <app-filter></app-filter>
+      </div>
+      <div class="cards__container">
+        <h1>Projects</h1>
+        <app-browse-card *ngFor="let i of arr"></app-browse-card>
+      </div>
+    </div>
+</div>
