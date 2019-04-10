@@ -1,0 +1,83 @@
+.user-profile {
+    margin: 80px;
+}
+
+.user-profile__header {
+    font-size: 50px;
+    display: flex;
+}
+
+.header__title {
+    flex: 1;
+}
+
+.header__button {
+    float: right;
+}
+
+.button__edit-profile {
+    height: 50px;
+    width: 150px;
+    color: white;
+    background-color: purple;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.user-profile__body {
+    display: flex;
+    margin-top: 30px;
+}
+
+.profile-pic__image {
+    height: 500px;
+    width: 550px;
+    flex: 1;
+}
+
+.body__profile-info-container {
+    flex: 1;
+    margin-left: 20px;
+}
+
+input {
+    height: 30px;
+    width: 500px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 500px;
+    width: 100%;
+    resize: none;
+}
+
+.body__profile-info-container {
+
+}
+
+.input-row__username-input {
+
+}
+
+.input-row__name-input {
+
+}
+
+.input-row__email-input {
+
+}
+
+.input-row__jobTitle-input {
+
+}
+
+.profile-info-container__bio-text {
+
+}
+
+
+
+

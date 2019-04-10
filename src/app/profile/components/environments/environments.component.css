@@ -1,0 +1,22 @@
+.environments {
+    margin: 80px;
+}
+
+.environments__header {
+    font-size: 50px;
+    display: flex;
+}
+
+.header__title {
+    flex: 1;
+}
+
+.button__new-env {
+    height: 50px;
+    width: 150px;
+    color: white;
+    background-color: purple;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+.profile-card {
+    height: 400px;
+    width: 350px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 7px 12px 18px 0px rgba(0,0,0,0.47);
+-moz-box-shadow: 7px 12px 18px 0px rgba(0,0,0,0.47);
+box-shadow: 7px 12px 18px 0px rgba(0,0,0,0.47);
+}
+
+.profile-card__image {
+    height: 200px;
+    width: 350px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-card__body {
+    padding: 10px;
+}
+
+.body__title {
+    font-size: 30px;
+}
+
+.body__description {
+    margin-top: 10px;
+}
+

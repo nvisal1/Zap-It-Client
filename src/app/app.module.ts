@@ -17,6 +17,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { ProjectsComponent } from './profile/components/projects/projects.component';
 import { EnvironmentsComponent } from './profile/components/environments/environments.component';
+import { ProfileCardComponent } from './profile/components/profile-card/profile-card.component';
+import { EnvCardComponent } from './profile/components/env-card/env-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EnvironmentsComponent } from './profile/components/environments/environ
     NavbarComponent,
     ProfileComponent,
     ProjectsComponent,
-    EnvironmentsComponent
+    EnvironmentsComponent,
+    ProfileCardComponent,
+    EnvCardComponent
   ],
   imports: [
     BrowserModule,
