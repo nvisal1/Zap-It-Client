@@ -1,61 +1,44 @@
 .login {
-    background: url("../../../../../Frame.png") no-repeat center center fixed; 
-    background-size: 100% 100%; 
-    z-index: -1;
-    padding: 30px;
-    height: 900px;
+    min-height: 1000px;
+    background-image: -webkit-linear-gradient(0deg, white 50%, black 50%);
+}
+
+.login-container {
+    padding-top: 100px;
+    min-height: 1000px;
+    background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E"); 
 }
 
 .login__text-container {
-    margin-top: 100px;
-    float: right;
+    padding: 10px;
+    border-radius: 5px;
+    height: 80px;
+    width: 500px;
+    margin: auto;
+    background-image: -webkit-linear-gradient(0deg, black 50%, white 50%);
 }
 
 .text-container__text {
-    color: white;
-    margin-top: 10px;
-    font-size: 25px;
-    font-family: 'Courier New', Courier, monospace;
+    color: transparent;
+    filter: invert(1) grayscale(1) contrast(10);
+    background: inherit;
+	-webkit-background-clip: text;
+			background-clip: text;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100px;
+    text-align: center;
 }
 
 .login__form-container {
+    background-color: white;
+    border-radius: 5px;
+    opacity: 0.9;
     padding: 30px;
     width: 300px;
-    bottom: 0;
-    position: fixed;
+    position: absolute;
     text-align: center;
-    margin-left: 150px;
-    margin-bottom: 250px;
-}
-
-.form-container__input {
-  position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 280px;
-}
-
-.label {
-    position: absolute;
-    top: 16px;
-    left: 0;
-    font-size: 16px;
-    color: #9098A9;
-    font-weight: 500;
-    transform-origin: 0 0;
-    transition: all .2s ease;
-}
-
-.border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: #0077FF;
-    transform: scaleX(0);
-    transform-origin: 0 0;
-    transition: all .15s ease;
+    top: 300px;
+    right: 200px;
 }
 
 .form-container__button {
@@ -76,4 +59,10 @@
 
 .form-container__alt {
     margin-top: 30px;
+}
+
+.login-container__card-container {
+    display: flex;
+    margin-left: 10px;
+    height: 100%;
 }

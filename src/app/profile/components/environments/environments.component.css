@@ -5,6 +5,7 @@
 .environments__header {
     font-size: 50px;
     display: flex;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .header__title {
@@ -19,4 +20,8 @@
     border-radius: 50px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.environments__cards {
+    margin-top: 20px;
 }

@@ -19,6 +19,8 @@ import { ProjectsComponent } from './profile/components/projects/projects.compon
 import { EnvironmentsComponent } from './profile/components/environments/environments.component';
 import { ProfileCardComponent } from './profile/components/profile-card/profile-card.component';
 import { EnvCardComponent } from './profile/components/env-card/env-card.component';
+import { AutoscrollComponent } from './authentication/components/autoscroll/autoscroll.component';
+import { SoftwareCardComponent } from './authentication/components/software-card/software-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EnvCardComponent } from './profile/components/env-card/env-card.compone
     ProjectsComponent,
     EnvironmentsComponent,
     ProfileCardComponent,
-    EnvCardComponent
+    EnvCardComponent,
+    AutoscrollComponent,
+    SoftwareCardComponent
   ],
   imports: [
     BrowserModule,

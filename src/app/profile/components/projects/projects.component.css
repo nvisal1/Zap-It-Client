@@ -5,6 +5,7 @@
 .projects__header {
     font-size: 50px;
     display: flex;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .header__title {
@@ -20,4 +21,12 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+.projects__cards {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 
