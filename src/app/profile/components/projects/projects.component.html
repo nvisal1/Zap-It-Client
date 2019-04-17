@@ -7,10 +7,9 @@
       <button class="button__edit-project">Edit Project</button>
     </div>
   </div>
-  <div class="projects__cards">
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
+  <div class="projects__cards" *ngFor="let project of projects">
+    <app-profile-card
+      [project]="project"
+    ></app-profile-card>
   </div>
 </div>

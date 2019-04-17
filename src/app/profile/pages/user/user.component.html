@@ -1,5 +1,11 @@
 <div>
-  <app-profile></app-profile>
-  <app-projects></app-projects>
-  <app-environments></app-environments>
+  <app-profile
+    [currentUser]="currentUser"
+  ></app-profile>
+  <app-projects
+    [projects]="currentUserProjects"
+  ></app-projects>
+  <app-environments
+  
+  ></app-environments>
 </div>

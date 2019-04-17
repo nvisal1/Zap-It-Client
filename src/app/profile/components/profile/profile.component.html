@@ -9,25 +9,21 @@
   </div>
   <div class="user-profile__body">
     <div class="body__profile-pic">
-      <img class="profile-pic__image" src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681" alt="">
+      <img class="profile-pic__image" src="{{ gravatarImage(200) }}" alt="">
       <div>
-        <div>Nick Visalli</div>
-        <div>nvisal1@gmail.com</div>
-        <div>Site Reliability Engineer</div>
-        <div>Long live rock n' roll</div>
         <button class="launch-button">Launch</button>
       </div>
     </div>
     <div class="body__profile-info-container">
       <div class="profile-info-container__input-row">
-          <input class="input-row__username-input" type="">
-          <input class="input-row__name-input" type="">
+          <input class="input-row__username-input" type="" value="{{ currentUser?.name }}">
+          <input class="input-row__name-input" type="" value="{{ currentUser?.email }}">
       </div>
       <div class="profile-info-container__input-row">
-          <input class="input-row__email-input" type="">
-          <input class="input-row__jobTitle-input" type="">
+          <input class="input-row__email-input" type="" value="{{ currentUser?.username }}">
+          <input class="input-row__jobTitle-input" type="" value="{{ currentUser?.jobType }}">
       </div>
-      <textarea class="profile-info-container__bio-text"></textarea>
+      <textarea class="profile-info-container__bio-text" value="{{ currentUser?.bio }}"></textarea>
     </div>
   </div>
 </div>
