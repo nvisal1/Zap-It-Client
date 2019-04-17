@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-environments',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./environments.component.css']
 })
 export class EnvironmentsComponent implements OnInit {
-
+  @Input() environments: [];
   constructor() { }
 
   ngOnInit() {

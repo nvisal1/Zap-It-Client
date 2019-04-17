@@ -7,9 +7,9 @@
       <button class="button__new-env">New Env</button>
     </div>
   </div>
-  <div class="environments__cards">
-    <app-env-card></app-env-card>
-    <app-env-card></app-env-card>
-    <app-env-card></app-env-card>
+  <div class="environments__cards" *ngFor="let environment of environments">
+    <app-env-card
+      [environment]="environment"
+    ></app-env-card>
   </div>
 </div>

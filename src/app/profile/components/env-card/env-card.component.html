@@ -1,17 +1,17 @@
 <div class="env-card">
   <div class="env-card__header">
-    Environment Name
+    {{ environment?.name }}
   </div>
   <div class="env-card__body">
     <div class="body__installations">
       <div class="installations__list-item">
-        Docker
+        Docker: {{ environment?.docker }}
       </div>
       <div class="installations__list-item">
-        Git
+        Git: {{ environment?.git }}
       </div>
       <div class="installations__list-item">
-        NodeJs
+        NodeJs: {{ environment?.node }}
       </div>
     </div>
     <div class="body__scripts">

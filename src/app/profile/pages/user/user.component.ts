@@ -30,6 +30,7 @@ const currentUserProjects = gql`
       url
       description
       authorId
+      thumbnail
     }
   }
 `;
@@ -59,9 +60,10 @@ export class UserComponent implements OnInit {
   currentUser: any;
   userSubscription: Subscription;
   projectsSubscription: Subscription;
-  
-  currentUserProjects: Observable<any>;
-  currentUserEnvironments: Observable<any>;
+  environmentsSubscription: Subscription;
+
+  currentUserProjects: any;
+  currentUserEnvironments: any;
 
   constructor(private apollo: Apollo) { }
 
@@ -82,10 +84,12 @@ export class UserComponent implements OnInit {
       this.currentUserProjects = data.userProjects;
     });
 
-    this.currentUserEnvironments = this.apollo.watchQuery<any>({
+    this.environmentsSubscription = this.apollo.watchQuery<any>({
       query: currentUserEnvironments
     })
     .valueChanges
-    .pipe(map(({data}) => data.getUserEnvironments));
+    .subscribe(({data}) => {
+      this.currentUserEnvironments = data.getUserEnvironments;
+    });
   }
 }
