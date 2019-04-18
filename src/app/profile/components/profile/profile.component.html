@@ -1,29 +1,22 @@
 <div class="user-profile">
   <div class="user-profile__header">
     <div class="header__title">
-      Profile
-    </div>
-    <div class="header__button">
-      <button class="button__edit-profile">Edit Profile</button>
+      {{ currentUser?.name | titlecase }}
     </div>
   </div>
   <div class="user-profile__body">
     <div class="body__profile-pic">
       <img class="profile-pic__image" src="{{ gravatarImage(200) }}" alt="">
+      <div>Email: {{ currentUser?.email }}</div>
+      <div>Username: {{ currentUser?.username }}</div>
+      <div>Job: {{ currentUser?.jobType }}</div>
+      <div>Bio: {{ currentUser?.bio }}</div>
+      <div>
+        <button class="launch-button">Edit Profile</button>
+      </div>
       <div>
         <button class="launch-button">Launch</button>
       </div>
-    </div>
-    <div class="body__profile-info-container">
-      <div class="profile-info-container__input-row">
-          <input class="input-row__username-input" type="" value="{{ currentUser?.name }}">
-          <input class="input-row__name-input" type="" value="{{ currentUser?.email }}">
-      </div>
-      <div class="profile-info-container__input-row">
-          <input class="input-row__email-input" type="" value="{{ currentUser?.username }}">
-          <input class="input-row__jobTitle-input" type="" value="{{ currentUser?.jobType }}">
-      </div>
-      <textarea class="profile-info-container__bio-text" value="{{ currentUser?.bio }}"></textarea>
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+.profile { 
+    background-color: #89BBFE;
+    padding-top: 80px;
+    height: 250px;
+}
+
+.profile__container {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.profile__user-info {
+    float: left;
+    margin-right: 100px;
+}
+
+.profile__projects {
+}
+

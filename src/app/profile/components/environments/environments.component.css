@@ -1,5 +1,5 @@
 .environments {
-    margin: 80px;
+   
 }
 
 .environments__header {
@@ -16,7 +16,7 @@
     height: 50px;
     width: 150px;
     color: white;
-    background-color: purple;
+    background-color: #6F8AB7;
     border-radius: 50px;
     font-size: 20px;
     cursor: pointer;

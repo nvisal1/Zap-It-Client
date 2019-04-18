@@ -1,11 +1,18 @@
-<div>
-  <app-profile
-    [currentUser]="currentUser"
-  ></app-profile>
-  <app-projects
-    [projects]="currentUserProjects"
-  ></app-projects>
-  <app-environments
-    [environments]="currentUserEnvironments"
-  ></app-environments>
+<div class="profile">
+  <div class="profile__container">
+    <div class="profile__user-info">
+      <app-profile
+        [currentUser]="currentUser"
+      ></app-profile>
+    </div>
+    <div class="profile__projects">
+      <app-projects
+        [projects]="currentUserProjects"
+        (projectId)="startProject($event)"
+      ></app-projects>
+    </div>
+    <!-- <app-environments
+      [environments]="currentUserEnvironments"
+    ></app-environments> -->
+  </div>
 </div>

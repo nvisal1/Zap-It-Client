@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { Observable, Subscription } from 'rxjs';
-import {map} from 'rxjs/operators';
-
+import { Subscription } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { BuildComponent } from '../../components/build/build.component';
 
 const currentUser = gql`
   query {
@@ -61,11 +61,16 @@ export class UserComponent implements OnInit {
   userSubscription: Subscription;
   projectsSubscription: Subscription;
   environmentsSubscription: Subscription;
+  startProjectSubscription: Subscription;
+  stopProjectSubscription: Subscription;
 
   currentUserProjects: any;
   currentUserEnvironments: any;
 
-  constructor(private apollo: Apollo) { }
+  constructor(
+    private apollo: Apollo,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.userSubscription = this.apollo.watchQuery<any>({
@@ -90,6 +95,51 @@ export class UserComponent implements OnInit {
     .valueChanges
     .subscribe(({data}) => {
       this.currentUserEnvironments = data.getUserEnvironments;
+    });
+  }
+
+  startProject(id: string) {
+    const startProject = gql`
+      query {
+        startProject(
+          id: ${id}
+        ) {
+          code
+        }
+      }
+    `;
+
+    const stopProject = gql`
+      query {
+        stopProject(
+          id: ${id}
+        )
+      }
+    `;
+
+    this.startProjectSubscription = this.apollo.watchQuery<any>({
+      query: startProject,
+      notifyOnNetworkStatusChange: true,
+    })
+    .valueChanges
+    .subscribe(({data, loading}) => {
+      this.loading = loading;
+      const dialogRef = this.dialog.open(BuildComponent, {
+        height: '100%',
+        width: '600px',
+        data: {
+          code: data.startProject.code,
+          loading,
+        }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.stopProjectSubscription = this.apollo.watchQuery<any>({
+          query: stopProject,
+        })
+        .valueChanges
+        .subscribe(() => {});
+      });
     });
   }
 }

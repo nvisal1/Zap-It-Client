@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatDialogModule} from '@angular/material';
 import { RegisterComponent } from './authentication/pages/register/register.component';
 import { UserComponent } from './profile/pages/user/user.component';
 import { OtherComponent } from './profile/pages/other/other.component';
@@ -26,6 +26,7 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { environment } from 'src/environments/environment';
+import { BuildComponent } from './profile/components/build/build.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +45,17 @@ import { environment } from 'src/environments/environment';
     ProfileCardComponent,
     EnvCardComponent,
     AutoscrollComponent,
-    SoftwareCardComponent
+    SoftwareCardComponent,
+    BuildComponent
   ],
+  entryComponents: [BuildComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     HttpClientModule,
     ApolloModule,
     HttpLinkModule

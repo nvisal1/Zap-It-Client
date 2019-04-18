@@ -4,12 +4,13 @@
       Projects
     </div>
     <div class="header__button">
-      <button class="button__edit-project">Edit Project</button>
+      <button class="button__add-project">+</button>
     </div>
   </div>
-  <div class="projects__cards" *ngFor="let project of projects">
-    <app-profile-card
+  <div class="projects__cards" >
+    <app-profile-card class="cards__project" *ngFor="let project of projects"
       [project]="project"
+      (projectId)="startProject($event)"
     ></app-profile-card>
   </div>
 </div>
