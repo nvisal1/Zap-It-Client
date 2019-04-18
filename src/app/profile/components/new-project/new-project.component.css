@@ -1,0 +1,25 @@
+.new-project {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+.new-project__frameworks {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.new-project__next-button-container {
+    text-align: right;
+    
+}
+
+.next-button-container__button {
+    height: 30px;
+    width: 100px;
+    background-color: #89BBFE;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

@@ -28,6 +28,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { environment } from 'src/environments/environment';
 import { BuildComponent } from './profile/components/build/build.component';
 import { LoadingComponent } from './profile/components/loading/loading.component';
+import { EditUserComponent } from './profile/components/edit-user/edit-user.component';
+import { NewProjectComponent } from './profile/components/new-project/new-project.component';
+import { FrameworkCardComponent } from './profile/components/framework-card/framework-card.component';
 
 @NgModule({
   declarations: [
@@ -48,11 +51,16 @@ import { LoadingComponent } from './profile/components/loading/loading.component
     AutoscrollComponent,
     SoftwareCardComponent,
     BuildComponent,
-    LoadingComponent
+    LoadingComponent,
+    EditUserComponent,
+    NewProjectComponent,
+    FrameworkCardComponent
   ],
   entryComponents: [
     BuildComponent,
     LoadingComponent,
+    EditUserComponent,
+    NewProjectComponent,
   ],
   imports: [
     BrowserModule,

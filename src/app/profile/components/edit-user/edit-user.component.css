@@ -1,0 +1,51 @@
+.edit-user {
+
+}
+
+.edit-user__header {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.edit-user__input-row {
+    margin-top: 20px;
+    text-align: center;
+}
+
+mat-form-field {
+    margin-right: 30px;
+}
+
+.edit-user__button-container {
+    text-align: center;
+}
+
+.edit-user__bio-container {
+    text-align: center;
+    padding-left: 90px;
+    padding-right: 123px;
+}
+
+.bio-container__bio {
+    width: 100%;
+    resize: none;
+}
+
+textarea {
+    height: 150px;
+}
+
+.button-container__button {
+    height: 50px;
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    background-color: #6F8AB7;
+    border: none;
+    outline: none;
+}
+
+.button-container__button:hover {
+    color: white;
+    background-color: #89BBFE;
+}

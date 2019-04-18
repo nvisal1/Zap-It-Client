@@ -7,7 +7,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
   @Input() projects: [];
-
+  @Output() newProject = new EventEmitter();
   @Output() projectId = new EventEmitter();
   constructor() { }
 
@@ -16,5 +16,9 @@ export class ProjectsComponent implements OnInit {
 
   startProject(id: string) {
     this.projectId.emit(id);
+  }
+
+  onNewProject() {
+    this.newProject.emit();
   }
 }

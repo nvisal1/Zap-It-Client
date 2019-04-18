@@ -12,10 +12,12 @@
       <div>Job: {{ currentUser?.jobType }}</div>
       <div>Bio: {{ currentUser?.bio }}</div>
       <div>
-        <button class="launch-button">Edit Profile</button>
-      </div>
-      <div>
-        <button class="launch-button">Launch</button>
+        <button 
+          class="edit-profile-button"
+          (click)="editUser()"
+          >
+          Edit Profile
+        </button>
       </div>
     </div>
   </div>

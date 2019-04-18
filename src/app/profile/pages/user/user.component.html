@@ -3,12 +3,14 @@
     <div class="profile__user-info">
       <app-profile
         [currentUser]="currentUser"
+        (userId)="openEditUserModal($event)"
       ></app-profile>
     </div>
     <div class="profile__projects">
       <app-projects
         [projects]="currentUserProjects"
         (projectId)="startProject($event)"
+        (newProject)="openNewProjectModal()"
       ></app-projects>
     </div>
     <!-- <app-environments

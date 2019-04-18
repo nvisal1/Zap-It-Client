@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { BuildComponent } from '../../components/build/build.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
+import { EditUserComponent } from '../../components/edit-user/edit-user.component';
+import { NewProjectComponent } from '../../components/new-project/new-project.component';
 
 const currentUser = gql`
   query {
@@ -146,6 +148,20 @@ export class UserComponent implements OnInit {
         .valueChanges
         .subscribe(() => {});
       });
+    });
+  }
+
+  openEditUserModal(userId: string) {
+    this.dialog.open(EditUserComponent, {
+      height: '700px',
+      width: '700px',
+    });
+  }
+
+  openNewProjectModal() {
+    this.dialog.open(NewProjectComponent, {
+      height: '700px',
+      width: '700px',
     });
   }
 }

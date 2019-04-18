@@ -58,13 +58,20 @@ textarea {
     resize: none;
 }
 
-.launch-button {
+.edit-profile-button {
     height: 50px;
     width: 350px;
     margin-top: 20px;
     font-size: 20px;
     color: white;
     background-color: #6F8AB7;
+    border: none;
+    outline: none;
+}
+
+.edit-profile-button:hover {
+    color: white;
+    background-color: #89BBFE;
 }
 
 .body__profile-info-container {

@@ -1,0 +1,28 @@
+.card {
+    height: 100px;
+    width: 123px;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 10px;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.card__logo-container {
+    width: 50px;
+    height: 9px;
+    margin: auto;
+}
+
+.logo-container__logo {
+    width: 100%;
+    height: auto;
+}
