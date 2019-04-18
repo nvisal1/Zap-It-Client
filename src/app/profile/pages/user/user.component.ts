@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { BuildComponent } from '../../components/build/build.component';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 const currentUser = gql`
   query {
@@ -117,23 +118,28 @@ export class UserComponent implements OnInit {
       }
     `;
 
+    // open loading modal
+    const loadingDialogRef = this.dialog.open(LoadingComponent, {
+        height: '400px',
+        width: '600px',
+    });
+
     this.startProjectSubscription = this.apollo.watchQuery<any>({
       query: startProject,
       notifyOnNetworkStatusChange: true,
     })
     .valueChanges
-    .subscribe(({data, loading}) => {
-      this.loading = loading;
-      const dialogRef = this.dialog.open(BuildComponent, {
-        height: '100%',
+    .subscribe(({data}) => {
+      loadingDialogRef.close();
+      const buildDialogRef = this.dialog.open(BuildComponent, {
+        height: '80%',
         width: '600px',
         data: {
           code: data.startProject.code,
-          loading,
         }
       });
 
-      dialogRef.afterClosed().subscribe(result => {
+      buildDialogRef.afterClosed().subscribe(result => {
         this.stopProjectSubscription = this.apollo.watchQuery<any>({
           query: stopProject,
         })
