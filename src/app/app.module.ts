@@ -33,6 +33,7 @@ import { NewProjectComponent } from './profile/components/new-project/new-projec
 import { FrameworkCardComponent } from './profile/components/framework-card/framework-card.component';
 import { LoginFormComponent } from './authentication/components/login-form/login-form.component';
 import { RegistrationFormComponent } from './authentication/components/registration-form/registration-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,9 @@ import { RegistrationFormComponent } from './authentication/components/registrat
     MatProgressSpinnerModule,
     HttpClientModule,
     ApolloModule,
-    HttpLinkModule
+    HttpLinkModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [{
     provide: APOLLO_OPTIONS,

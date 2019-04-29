@@ -1,17 +1,29 @@
-<form action="">
+<form [formGroup]="form">
   <div class="form__element">
     <input 
+      formControlName="username"
       class="element__input"
       type="text"
       placeholder="username"
     >
+    <div 
+      class="element__error"
+      *ngIf="username.touched && username.invalid">
+      Username is required
+    </div>
   </div>
   <div class="form__element">
     <input 
+      formControlName="password"
       class="element__input"
       type="password"
       placeholder="password"
     >
+    <div 
+      class="element__error"
+      *ngIf="password.touched && password.invalid">
+      Password is required
+    </div>
   </div>
   <div class="form__element">
     <button

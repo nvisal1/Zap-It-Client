@@ -13,6 +13,12 @@
     outline: none;
 }
 
+.element__error {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
 .element__button {
     background-color: #89BBFE;
     border: none;
