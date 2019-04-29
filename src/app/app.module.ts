@@ -31,6 +31,8 @@ import { LoadingComponent } from './profile/components/loading/loading.component
 import { EditUserComponent } from './profile/components/edit-user/edit-user.component';
 import { NewProjectComponent } from './profile/components/new-project/new-project.component';
 import { FrameworkCardComponent } from './profile/components/framework-card/framework-card.component';
+import { LoginFormComponent } from './authentication/components/login-form/login-form.component';
+import { RegistrationFormComponent } from './authentication/components/registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { FrameworkCardComponent } from './profile/components/framework-card/fram
     LoadingComponent,
     EditUserComponent,
     NewProjectComponent,
-    FrameworkCardComponent
+    FrameworkCardComponent,
+    LoginFormComponent,
+    RegistrationFormComponent
   ],
   entryComponents: [
     BuildComponent,

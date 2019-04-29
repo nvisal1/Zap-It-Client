@@ -1,12 +1,18 @@
 .new-project {
     font-family: 'Roboto', sans-serif;
+}
+
+.new-project__header {
     font-size: 30px;
 }
 
 .new-project__frameworks {
     display: flex;
     flex-wrap: wrap;
+
+    justify-content: center;
     margin-top: 30px;
+
 }
 
 .new-project__next-button-container {
@@ -22,4 +28,13 @@
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.edit-user__input-row {
+    margin-top: 20px;
+    text-align: center;
+}
+
+mat-form-field {
+    margin-right: 30px;
 }

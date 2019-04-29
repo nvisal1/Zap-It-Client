@@ -1,5 +1,29 @@
 <div class="new-project">
-  Create Project
+  <div class="new-project__header">
+    Create Project
+  </div>
+  <form action="">
+    <div class="edit-user__input-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </div>
+    <div class="edit-user__input-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Url</mat-label>
+          <input matInput placeholder="Placeholder">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Thumbnail</mat-label>
+          <input matInput placeholder="Placeholder">
+        </mat-form-field>
+      </div>
+  </form>
   <div class="new-project__frameworks">
     <app-framework-card *ngFor="let framework of frameworks"
       [framework]="framework"
@@ -8,6 +32,6 @@
   <div class="new-project__next-button-container">
     <button
       class="next-button-container__button"
-    >Next</button>
+    >Create</button>
   </div>
 </div>
