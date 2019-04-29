@@ -9,6 +9,8 @@
     </div>
   </div>
   <div class="sidebar__form">
-    <app-registration-form></app-registration-form>
+    <app-login-form
+      (credentials)="login($event)"
+    ></app-login-form>
   </div>
 </div>

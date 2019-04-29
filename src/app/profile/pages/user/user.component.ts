@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { BuildComponent } from '../../components/build/build.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import { EditUserComponent } from '../../components/edit-user/edit-user.component';
