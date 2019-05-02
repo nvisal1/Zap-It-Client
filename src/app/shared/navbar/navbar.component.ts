@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as md5 from 'md5';
+import { NavbarService } from 'src/app/core/navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,11 @@ import * as md5 from 'md5';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor( public nav: NavbarService ) { }
 
   ngOnInit() {
   }
-  
+
   gravatarImage(size): string {
     // r=pg checks the rating of the Gravatar image
     return (

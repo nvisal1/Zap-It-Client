@@ -7,21 +7,8 @@ import { BuildComponent } from '../../components/build/build.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import { EditUserComponent } from '../../components/edit-user/edit-user.component';
 import { NewProjectComponent } from '../../components/new-project/new-project.component';
-
-const currentUser = gql`
-  query {
-    user (
-      id: 2
-    ) {
-      id
-      name
-      username
-      email
-      jobType
-      bio
-    }
-  }
-`;
+import { AuthService } from 'src/app/core/auth.service';
+import { NavbarService } from 'src/app/core/navbar.service';
 
 const currentUserProjects = gql`
   query {
@@ -73,16 +60,15 @@ export class UserComponent implements OnInit {
   constructor(
     private apollo: Apollo,
     public dialog: MatDialog,
+    private auth: AuthService,
+    public nav: NavbarService,
   ) { }
 
   ngOnInit() {
-    this.userSubscription = this.apollo.watchQuery<any>({
-      query: currentUser
-    })
-    .valueChanges
-    .subscribe(({data}) => {
-      this.currentUser = data.user;
-    });
+
+    this.nav.show();
+
+    this.currentUser = this.auth.user;
 
     this.projectsSubscription = this.apollo.watchQuery<any>({
       query: currentUserProjects

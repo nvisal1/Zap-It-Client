@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatDialogModule, MatProgressSpinnerModule} from '@angular/material';
-import { RegisterComponent } from './authentication/pages/register/register.component';
 import { UserComponent } from './profile/pages/user/user.component';
 import { OtherComponent } from './profile/pages/other/other.component';
 import { BrowseComponent } from './browse/pages/browse/browse.component';
@@ -19,8 +18,6 @@ import { ProjectsComponent } from './profile/components/projects/projects.compon
 import { EnvironmentsComponent } from './profile/components/environments/environments.component';
 import { ProfileCardComponent } from './profile/components/profile-card/profile-card.component';
 import { EnvCardComponent } from './profile/components/env-card/env-card.component';
-import { AutoscrollComponent } from './authentication/components/autoscroll/autoscroll.component';
-import { SoftwareCardComponent } from './authentication/components/software-card/software-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
@@ -39,7 +36,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
     UserComponent,
     OtherComponent,
     BrowseComponent,
@@ -51,8 +47,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EnvironmentsComponent,
     ProfileCardComponent,
     EnvCardComponent,
-    AutoscrollComponent,
-    SoftwareCardComponent,
     BuildComponent,
     LoadingComponent,
     EditUserComponent,

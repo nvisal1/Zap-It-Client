@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/auth.service';
+import { Router } from '@angular/router';
+import { NavbarService } from 'src/app/core/navbar.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +16,14 @@ export class LoginComponent implements OnInit {
   loginSubscription: Subscription;
 
   constructor(
+    private auth: AuthService,
     private apollo: Apollo,
+    private router: Router,
+    private nav: NavbarService,
   ) { }
 
   ngOnInit() {
+    this.nav.hide();
   }
 
   async login(params: {
@@ -39,8 +46,11 @@ export class LoginComponent implements OnInit {
       query: login
     })
     .valueChanges
-    .subscribe(({data}) => {
-      console.log(data);
+    .subscribe(({data, errors}) => {
+      if (data.login.token) {
+        this.auth.login(data.login.token);
+        this.router.navigate(['/profile']);
+      }
     });
   }
 }
