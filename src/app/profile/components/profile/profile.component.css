@@ -32,11 +32,25 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.profile-pic__image {
-    border-radius: 20px;
-    height: 300px;
-    width: 350px;
+.user-info__image {
+    border-radius: 10px;
+    height: 270px;
+    width: 270px;
     flex: 1;
+    margin-bottom: 10px;
+}
+
+.user-info__username {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.user-info__alt-info {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
 }
 
 .body__profile-info-container {
@@ -60,7 +74,7 @@ textarea {
 
 .edit-profile-button {
     height: 50px;
-    width: 350px;
+    width: 270px;
     margin-top: 20px;
     font-size: 20px;
     color: white;

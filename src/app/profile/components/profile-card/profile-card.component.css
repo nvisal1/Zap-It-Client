@@ -1,5 +1,5 @@
 .profile-card {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: white;
     position: relative;
     height: 400px;
@@ -32,7 +32,7 @@ button:hover {
 }
 
 img {
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
     height: 100%;
     width: 100%;
 }

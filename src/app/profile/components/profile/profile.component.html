@@ -5,12 +5,20 @@
     </div>
   </div>
   <div class="user-profile__body">
-    <div class="body__profile-pic">
-      <img class="profile-pic__image" src="{{ gravatarImage(200) }}" alt="">
-      <div>Email: {{ currentUser?.email }}</div>
-      <div>Username: {{ currentUser?.username }}</div>
-      <div>Job: {{ currentUser?.jobType }}</div>
-      <div>Bio: {{ currentUser?.bio }}</div>
+    <div class="body__user-info">
+      <img class="user-info__image" src="{{ gravatarImage(200) }}" alt="">
+      <div class="user-info__username">
+        {{ currentUser?.username }}
+      </div>
+      <div class="user-info__alt-info">
+        {{ currentUser?.email }}
+      </div>
+      <div class="user-info__alt-info">
+        {{ currentUser?.jobType }}
+      </div>
+      <div class="user-info__alt-info">
+        {{ currentUser?.bio }}
+      </div>
       <div>
         <button 
           class="edit-profile-button"

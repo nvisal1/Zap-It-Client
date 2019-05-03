@@ -1,19 +1,24 @@
 <div *ngIf="nav.visible" class="navbar">
   <div class="navbar__container">
-    <div class="container__logo">
+    <div class="container__logo" routerLink="/profile">
       -it.io
     </div>
     <div class="container__search">
-      <input 
-        class="search__input"
-        type="text"
-      >
+      <form [formGroup]="form" (ngSubmit)="search()">
+          <input 
+            formControlName="text"
+            class="search__input"
+            type="text"
+            placeholder="Search"
+          >
+      </form>
     </div>
     <div class="container__profile-pic">
       <img 
         class="profile-pic__img"
         src="{{gravatarImage(200)}}" 
         alt=""
+        routerLink="/profile"
       >
     </div>
   </div>

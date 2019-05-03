@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as md5 from 'md5';
 import { NavbarService } from 'src/app/core/navbar.service';
 import { AuthService } from 'src/app/core/auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +12,14 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  form = new FormGroup({
+    text: new FormControl(''),
+  });
+
   constructor(
     public nav: NavbarService,
     public auth: AuthService,
+    private router: Router,
     ) { }
 
   ngOnInit() {}
@@ -26,6 +33,10 @@ export class NavbarComponent implements OnInit {
       size +
       '?r=pg&d=identicon'
     );
+  }
+
+  search() {
+    this.router.navigate(['/browse'], { queryParams: { text: this.form.value.text } });
   }
 
 }
