@@ -1,5 +1,6 @@
 .search {
-   background-color: grey;
+  font-family: 'Roboto', sans-serif;
+  min-height: 1000px;
 }
 
 .search__container {

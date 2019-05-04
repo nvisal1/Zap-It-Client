@@ -5,7 +5,10 @@
       </div>
       <div class="cards__container">
         <h1>Projects</h1>
-        <app-browse-card *ngFor="let i of results"></app-browse-card>
+        <app-browse-card 
+          *ngFor="let i of results"
+          [project]="i"
+        ></app-browse-card>  
       </div>
     </div>
 </div>

@@ -12,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: BrowseComponent,
+    runGuardsAndResolvers: 'always',
   },
   {
     path: 'profile',
@@ -21,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

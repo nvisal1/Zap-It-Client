@@ -3,7 +3,7 @@ import * as md5 from 'md5';
 import { NavbarService } from 'src/app/core/navbar.service';
 import { AuthService } from 'src/app/core/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     public nav: NavbarService,
     public auth: AuthService,
     private router: Router,
-    ) { }
+    ) {}
 
   ngOnInit() {}
 
@@ -36,7 +36,11 @@ export class NavbarComponent implements OnInit {
   }
 
   search() {
-    this.router.navigate(['/browse'], { queryParams: { text: this.form.value.text } });
+    if (this.router.url.match(/\/text.*/)) {
+      window.location.reload(false);
+    } else {
+      this.router.navigate(['/browse'], { queryParams: { text: this.form.value.text } });
+    }
   }
 
 }

@@ -1,14 +1,17 @@
 <div class="card">
   <div class="card__container">
     <div class="container__thumbnail">
-      <img src="" alt="">
+      <img src="{{ project?.thumbnail }}" alt="">
     </div>
     <div class="container__text">
       <div class="text__title">
-        Zap-it
+        {{ project?.name }}
       </div>
       <div class="text__author">
-        nvisal1
+        {{ author?.name | titlecase}}
+      </div>
+      <div class="text__description">
+        {{ project?.description }}
       </div>
     </div>
     <div class="container__profile-pic">
