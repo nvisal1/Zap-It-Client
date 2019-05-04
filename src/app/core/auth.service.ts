@@ -24,4 +24,9 @@ export class AuthService {
     const decoded = jwt(token);
     this.user = decoded['data'];
   }
+
+  logout() {
+    localStorage.removeItem('TOKEN');
+    this.user = {};
+  }
 }

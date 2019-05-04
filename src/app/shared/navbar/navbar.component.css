@@ -37,6 +37,25 @@ input {
     flex: 1;
 }
 
+.container__logout {
+    margin-right: 30px;
+}
+
+.logout__button {
+    border: none; 
+    outline: none;
+    border-radius: 0;
+    background-color: #89BBFE;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    width: 80px;
+}
+.logout__button:hover {
+    background-color: white;
+    color: #89BBFE;
+}
+
 .profile-pic__img {
     border-radius: 50%;
     height: 45px;
