@@ -35,6 +35,17 @@ textarea {
     height: 150px;
 }
 
+.element__input {
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom: 1px solid #89BBFE;
+    border-left: 3px solid black;
+    outline: none;
+    margin-bottom: 10px;  
+}
+
 .button-container__button {
     height: 50px;
     width: 250px;

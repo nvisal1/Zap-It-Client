@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/auth.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 const getAllFrameworks = gql`
   query {
@@ -24,9 +27,21 @@ export class NewProjectComponent implements OnInit {
 
   frameworkSubscription: Subscription;
   frameworks: [];
+  selectedFrameworkId = 0;
+  submitSubscription: Subscription;
+
+  form = new FormGroup({
+    name: new FormControl('', Validators.required),
+    url: new FormControl('', Validators.required),
+    thumbnail: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    directoryName: new FormControl('', Validators.required),
+    port: new FormControl('', Validators.required),
+  });
 
   constructor(
     private apollo: Apollo,
+    private auth: AuthService,
   ) { }
 
   ngOnInit() {
@@ -37,5 +52,32 @@ export class NewProjectComponent implements OnInit {
     .subscribe(({data}) => {
       this.frameworks = data.getAllFrameworks;
     });
+  }
+
+  submit() {
+    const newProject = gql`query{
+      insertProject(
+        name: "${this.form.value.name}",
+        url: "${this.form.value.url}",
+        description: "${this.form.value.description}",
+        authorId: "${this.auth.user['id']}",
+        thumbnail: "${this.form.value.thumbnail}",
+        directoryName: "${this.form.value.directoryName}",
+        port: "${this.form.value.port}",
+        frameworkId: "${this.selectedFrameworkId}"
+      )
+    }`;
+
+    this.submitSubscription = this.apollo.watchQuery<any>({
+      query: newProject
+    })
+    .valueChanges
+    .subscribe(({data, errors}) => {
+      console.log(data);
+    });
+  }
+
+  selectFramework(id: number) {
+    this.selectedFrameworkId = id;
   }
 }

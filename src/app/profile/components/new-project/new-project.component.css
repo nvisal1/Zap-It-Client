@@ -4,20 +4,30 @@
 
 .new-project__header {
     font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.element__input {
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom: 1px solid #89BBFE;
+    border-left: 3px solid black;
+    outline: none;
+    margin-bottom: 10px;
 }
 
 .new-project__frameworks {
     display: flex;
     flex-wrap: wrap;
-
     justify-content: center;
-    margin-top: 30px;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .new-project__next-button-container {
     text-align: right;
-    
 }
 
 .next-button-container__button {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-framework-card',
@@ -7,10 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FrameworkCardComponent implements OnInit {
   @Input() framework: any;
+  @Input() selected: number;
+
+  @Output() select = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  selectCard() {
+    this.select.emit(this.framework.id);
+  }
 }

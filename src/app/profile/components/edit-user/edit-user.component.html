@@ -2,33 +2,37 @@
   <div class="edit-user__header">
     Edit User
   </div>
-  <form >
-    <div class="edit-user__input-row">
-      <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
-    </div>
-    <div class="edit-user__input-row">
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Job</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
-    </div>
-    <div class="edit-user__bio-container">
-      <mat-form-field class="bio-container__bio"appearance="outline">
-        <mat-label>Bio</mat-label>
-        <textarea matInput matTextareaAutosize=false placeholder="Placeholder"></textarea>
-      </mat-form-field>
-    </div>
+  <form [formGroup]="form" (ngSubmit)="submit()" >
+      <input 
+      formControlName="name"
+      class="element__input"
+      type="text"
+      placeholder="Name"
+    >
+    <input 
+      formControlName="username"
+      class="element__input"
+      type="text"
+      placeholder="Username"
+    >
+    <input 
+      formControlName="email"
+      class="element__input"
+      type="text"
+      placeholder="Email"
+    >
+    <input 
+      formControlName="job"
+      class="element__input"
+      type="text"
+      placeholder="Job"
+    >
+    <textarea
+      formControlName="bio"
+      class="element__input"
+      type="text"
+      placeholder="Bio"
+    ></textarea>
     <div class="edit-user__button-container">
       <button
         class="button-container__button"

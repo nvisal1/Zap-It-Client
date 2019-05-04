@@ -2,36 +2,54 @@
   <div class="new-project__header">
     Create Project
   </div>
-  <form action="">
-    <div class="edit-user__input-row">
-      <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Description</mat-label>
-        <input matInput placeholder="Placeholder">
-      </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <input 
+      formControlName="name"
+      class="element__input"
+      type="text"
+      placeholder="Project title"
+    >
+    <input 
+      formControlName="url"
+      class="element__input"
+      type="text"
+      placeholder="Remote URL"
+    >
+    <input 
+      formControlName="thumbnail"
+      class="element__input"
+      type="text"
+      placeholder="Thumbnail"
+    >
+    <input 
+      formControlName="description"
+      class="element__input"
+      type="text"
+      placeholder="Description"
+    >
+    <input 
+      formControlName="directoryName"
+      class="element__input"
+      type="text"
+      placeholder="Directory name"
+    >
+    <input 
+      formControlName="port"
+      class="element__input"
+      type="text"
+      placeholder="Port"
+    >
+    <div class="new-project__frameworks">
+      <app-framework-card *ngFor="let framework of frameworks"
+        [selected]="selectedFrameworkId"
+        [framework]="framework"
+        (select)="selectFramework($event)"
+      ></app-framework-card>
     </div>
-    <div class="edit-user__input-row">
-        <mat-form-field appearance="outline">
-          <mat-label>Url</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Thumbnail</mat-label>
-          <input matInput placeholder="Placeholder">
-        </mat-form-field>
-      </div>
+    <div class="new-project__next-button-container">
+      <button
+        class="next-button-container__button"
+      >Create</button>
+    </div>
   </form>
-  <div class="new-project__frameworks">
-    <app-framework-card *ngFor="let framework of frameworks"
-      [framework]="framework"
-    ></app-framework-card>
-  </div>
-  <div class="new-project__next-button-container">
-    <button
-      class="next-button-container__button"
-    >Create</button>
-  </div>
 </div>
