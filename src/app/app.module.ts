@@ -32,6 +32,8 @@ import { LoginFormComponent } from './authentication/components/login-form/login
 import { RegistrationFormComponent } from './authentication/components/registration-form/registration-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeleteUserComponent } from './profile/components/delete-user/delete-user.component';
+import { EditProjectComponent } from './profile/components/edit-project/edit-project.component';
+import { DeleteProjectComponent } from './profile/components/delete-project/delete-project.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DeleteUserComponent } from './profile/components/delete-user/delete-use
     FrameworkCardComponent,
     LoginFormComponent,
     RegistrationFormComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    EditProjectComponent,
+    DeleteProjectComponent
   ],
   entryComponents: [
     BuildComponent,
@@ -63,6 +67,8 @@ import { DeleteUserComponent } from './profile/components/delete-user/delete-use
     EditUserComponent,
     DeleteUserComponent,
     NewProjectComponent,
+    DeleteProjectComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,

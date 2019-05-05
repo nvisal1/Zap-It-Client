@@ -9,6 +9,9 @@ export class ProjectsComponent implements OnInit {
   @Input() projects: [];
   @Output() newProject = new EventEmitter();
   @Output() projectId = new EventEmitter();
+  @Output() editProject = new EventEmitter();
+  @Output() deleteProject = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -20,5 +23,13 @@ export class ProjectsComponent implements OnInit {
 
   onNewProject() {
     this.newProject.emit();
+  }
+
+  onEditProject(projectId: string) {
+    this.editProject.emit(projectId);
+  }
+
+  onDeleteProject(projectId: string) {
+    this.deleteProject.emit(projectId);
   }
 }

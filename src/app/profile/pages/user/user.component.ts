@@ -10,6 +10,8 @@ import { NewProjectComponent } from '../../components/new-project/new-project.co
 import { AuthService } from 'src/app/core/auth.service';
 import { NavbarService } from 'src/app/core/navbar.service';
 import { DeleteUserComponent } from '../../components/delete-user/delete-user.component';
+import { EditProjectComponent } from '../../components/edit-project/edit-project.component';
+import { DeleteProjectComponent } from '../../components/delete-project/delete-project.component';
 
 const currentUserProjects = gql`
   query {
@@ -154,6 +156,20 @@ export class UserComponent implements OnInit {
 
   openDeleteUserModal(userId: string) {
     this.dialog.open(DeleteUserComponent, {
+      height: '500px',
+      width: '700px',
+    });
+  }
+
+  openEditProjectModal(projectId: string) {
+    this.dialog.open(EditProjectComponent, {
+      height: '500px',
+      width: '700px',
+    });
+  }
+
+  openDeleteProjectModal(projectId: string) {
+    this.dialog.open(DeleteProjectComponent, {
       height: '500px',
       width: '700px',
     });

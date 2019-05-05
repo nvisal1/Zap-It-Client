@@ -14,6 +14,8 @@
     <app-profile-card class="cards__project" *ngFor="let project of projects"
       [project]="project"
       (projectId)="startProject($event)"
+      (editProject)="onEditProject($event)"
+      (deleteProject)="onDeleteProject($event)"
     ></app-profile-card>
   </div>
 </div>

@@ -12,6 +12,8 @@
         [projects]="currentUserProjects"
         (projectId)="startProject($event)"
         (newProject)="openNewProjectModal()"
+        (editProject)="openEditProjectModal($event)"
+        (deleteProject)="openDeleteProjectModal($event)"
       ></app-projects>
     </div>
     <!-- <app-environments
