@@ -9,6 +9,7 @@ import { EditUserComponent } from '../../components/edit-user/edit-user.componen
 import { NewProjectComponent } from '../../components/new-project/new-project.component';
 import { AuthService } from 'src/app/core/auth.service';
 import { NavbarService } from 'src/app/core/navbar.service';
+import { DeleteUserComponent } from '../../components/delete-user/delete-user.component';
 
 const currentUserProjects = gql`
   query {
@@ -144,9 +145,16 @@ export class UserComponent implements OnInit {
     });
   }
 
-  openNewProjectModal() {
+  openNewProjectModal(userId: string) {
     this.dialog.open(NewProjectComponent, {
-      height: '700px',
+      height: '900px',
+      width: '700px',
+    });
+  }
+
+  openDeleteUserModal(userId: string) {
+    this.dialog.open(DeleteUserComponent, {
+      height: '500px',
       width: '700px',
     });
   }

@@ -31,6 +31,7 @@ import { FrameworkCardComponent } from './profile/components/framework-card/fram
 import { LoginFormComponent } from './authentication/components/login-form/login-form.component';
 import { RegistrationFormComponent } from './authentication/components/registration-form/registration-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DeleteUserComponent } from './profile/components/delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -53,12 +54,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NewProjectComponent,
     FrameworkCardComponent,
     LoginFormComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    DeleteUserComponent
   ],
   entryComponents: [
     BuildComponent,
     LoadingComponent,
     EditUserComponent,
+    DeleteUserComponent,
     NewProjectComponent,
   ],
   imports: [

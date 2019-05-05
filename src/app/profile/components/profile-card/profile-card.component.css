@@ -26,6 +26,36 @@
     text-align: center;
 }
 
+.profile-card__edit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.edit__button {
+    width: 70px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: #89BBFE;
+    color: white;
+}
+
+.profile-card__delete {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.delete__button {
+    width: 70px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+}
+
 button:hover {
     background-color: white;
     color: #6F8AB7;

@@ -10,7 +10,8 @@ export class ProfileComponent implements OnInit {
 
   @Input() currentUser: any;
 
-  @Output() userId = new EventEmitter();
+  @Output() edit = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
   constructor() { }
 
@@ -28,6 +29,10 @@ export class ProfileComponent implements OnInit {
   }
 
   editUser() {
-    this.userId.emit(this.currentUser.id);
+    this.edit.emit(this.currentUser.id);
+  }
+
+  deleteUser() {
+    this.delete.emit(this.currentUser.id);
   }
 }

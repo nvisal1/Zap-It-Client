@@ -1,0 +1,36 @@
+.delete-user__modal {
+    
+}
+
+.modal__header {
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.modal__sub {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.modal__button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.button-container__button {
+    border: none;
+    outline: none;
+    background-color: red;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    height: 30px;
+    width: 100px;
+    font-size: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
