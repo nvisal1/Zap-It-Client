@@ -1,3 +1,45 @@
-<p>
-  edit-project works!
-</p>
+<div class="edit-project">
+  <div class="edit-project__header">
+    Edit Project
+  </div>
+  <div class="edit-project__form">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <input 
+        formControlName="name"
+        class="form__input"
+        type="text"
+        placeholder="Project title"
+      >
+      <input 
+        formControlName="url"
+        class="form__input"
+        type="text"
+        placeholder="Remote URL"
+      >
+      <input 
+        formControlName="description"
+        class="form__input"
+        type="text"
+        placeholder="Description"
+      >
+      <input 
+        formControlName="thumbnail"
+        class="form__input"
+        type="text"
+        placeholder="Thumbnail"
+      >
+      <input 
+        formControlName="port"
+        class="form__input"
+        type="text"
+        placeholder="Port"
+      >
+      <input 
+        formControlName="directoryName"
+        class="form__input"
+        type="text"
+        placeholder="Directory name"
+      >
+    </form>
+  </div>
+</div>
