@@ -1,9 +1,16 @@
 <div class="profile-card">
   <div class="profile-card__edit">
-    <button class="edit__button">Edit</button>
+    <button 
+      class="edit__button"
+      (click)="edit()"
+    >Edit</button>
   </div>
-  <div class="profile-card__delete">
-    <button class="delete__button">Delete</button>
+  <div 
+    class="profile-card__delete">
+    <button 
+      class="delete__button"
+      (click)="delete()"
+    >Delete</button>
   </div>
 
   <div class="profile-card__start" (click)="startProject()">
