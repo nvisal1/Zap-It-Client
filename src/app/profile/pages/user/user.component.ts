@@ -176,6 +176,9 @@ export class UserComponent implements OnInit {
     this.dialog.open(DeleteProjectComponent, {
       height: '500px',
       width: '700px',
+      data: {
+        project: this.currentUserProjects.filter(project => project.id === projectId)[0],
+      }
     });
   }
 }

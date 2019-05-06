@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import gql from 'graphql-tag';
+import { Subscription } from 'rxjs';
+import { Apollo } from 'apollo-angular';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-delete-project',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteProjectComponent implements OnInit {
 
-  constructor() { }
+  deleteProjectSubscription: Subscription;
+
+  constructor(
+    public dialogRef: MatDialogRef<DeleteProjectComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {},
+    private apollo: Apollo,
+  ) { }
 
   ngOnInit() {
+  }
+
+  deleteProject() {
+    const deleteProject = gql`
+      query {
+        deleteProject(
+          id: "${this.data['project']['id']}"
+        )
+      }
+    `;
+
+    this.deleteProjectSubscription = this.apollo.watchQuery<any>({
+      query: deleteProject,
+    })
+    .valueChanges
+    .subscribe(({data}) => {
+      console.log(data);
+    });
+
   }
 
 }

@@ -24,7 +24,7 @@ export class DeleteUserComponent implements OnInit {
   deleteUser() {
     const deleteUser = gql`
       query {
-        deleteUSer(
+        deleteUser(
           id: ${this.auth.user['id']}
         )
       }
