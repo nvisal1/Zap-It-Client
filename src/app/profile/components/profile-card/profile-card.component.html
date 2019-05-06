@@ -1,11 +1,14 @@
 <div class="profile-card">
-  <div class="profile-card__edit">
+  <div 
+    *ngIf="auth.user.id.toString() === project.authorId"
+    class="profile-card__edit">
     <button 
       class="edit__button"
       (click)="edit()"
     >Edit</button>
   </div>
   <div 
+    *ngIf="auth.user.id.toString() === project.authorId"
     class="profile-card__delete">
     <button 
       class="delete__button"

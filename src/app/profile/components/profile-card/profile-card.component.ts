@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-profile-card',
@@ -12,10 +13,11 @@ export class ProfileCardComponent implements OnInit {
   @Output() editProject = new EventEmitter();
   @Output() deleteProject = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    public auth: AuthService
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   startProject() {
     this.projectId.emit(this.project.id);
