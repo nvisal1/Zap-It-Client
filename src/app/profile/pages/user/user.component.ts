@@ -13,36 +13,6 @@ import { DeleteUserComponent } from '../../components/delete-user/delete-user.co
 import { EditProjectComponent } from '../../components/edit-project/edit-project.component';
 import { DeleteProjectComponent } from '../../components/delete-project/delete-project.component';
 
-const currentUserProjects = gql`
-  query {
-    userProjects (
-      authorId: 2
-    ) {
-      id
-      name
-      url
-      description
-      authorId
-      thumbnail
-      environmentId
-    }
-  }
-`;
-
-const currentUserEnvironments = gql`
-  query {
-    getUserEnvironments (
-      authorId: 2
-    ) {
-      id
-      docker
-      git
-      node
-      authorId
-      name
-    }
-  }
-`;
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -70,12 +40,43 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
+    const currentUserProjectsQuery = gql`
+      query {
+        userProjects (
+          authorId: "${this.auth.user['id']}"
+        ) {
+          id
+          name
+          url
+          description
+          authorId
+          thumbnail
+          environmentId
+        }
+      }
+    `;
+
+    const currentUserEnvironmentsQuery = gql`
+      query {
+        getUserEnvironments (
+          authorId: "${this.auth.user['id']}"
+        ) {
+          id
+          docker
+          git
+          node
+          authorId
+          name
+        }
+      }
+    `;
+
     this.nav.show();
 
     this.currentUser = this.auth.user;
 
     this.projectsSubscription = this.apollo.watchQuery<any>({
-      query: currentUserProjects
+      query: currentUserProjectsQuery
     })
     .valueChanges
     .subscribe(({data}) => {
@@ -83,7 +84,7 @@ export class UserComponent implements OnInit {
     });
 
     this.environmentsSubscription = this.apollo.watchQuery<any>({
-      query: currentUserEnvironments
+      query: currentUserEnvironmentsQuery
     })
     .valueChanges
     .subscribe(({data}) => {
