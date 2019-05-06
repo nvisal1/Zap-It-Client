@@ -1,4 +1,17 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form__element">
+      <input 
+        formControlName="name"
+        class="element__input"
+        type="text"
+        placeholder="name"
+      >
+      <div 
+        class="element__error"
+        *ngIf="name.touched && name.invalid">
+        Name is required
+      </div>
+    </div>
     <div class="form__element">
       <input 
         formControlName="username"
@@ -46,7 +59,7 @@
       </button>
     </div>
     <div class="form__element">
-      <div class="element__text">
+      <div class="element__text" routerLink="/login">
         or Login
       </div>
     </div>

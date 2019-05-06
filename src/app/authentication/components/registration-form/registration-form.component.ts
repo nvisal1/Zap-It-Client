@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegistrationFormComponent implements OnInit {
 
+  @Output() credentials = new EventEmitter();
+
   form = new FormGroup({
+    name: new FormControl('', Validators.required),
     username: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -18,6 +21,10 @@ export class RegistrationFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get name() {
+    return this.form.get('name');
   }
 
   get username() {
@@ -32,4 +39,7 @@ export class RegistrationFormComponent implements OnInit {
     return this.form.get('password');
   }
 
+  submit() {
+    this.credentials.emit(this.form.value);
+  }
 }

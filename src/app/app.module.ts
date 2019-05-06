@@ -34,6 +34,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeleteUserComponent } from './profile/components/delete-user/delete-user.component';
 import { EditProjectComponent } from './profile/components/edit-project/edit-project.component';
 import { DeleteProjectComponent } from './profile/components/delete-project/delete-project.component';
+import { RegisterComponent } from './authentication/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DeleteProjectComponent } from './profile/components/delete-project/dele
     RegistrationFormComponent,
     DeleteUserComponent,
     EditProjectComponent,
-    DeleteProjectComponent
+    DeleteProjectComponent,
+    RegisterComponent
   ],
   entryComponents: [
     BuildComponent,
