@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as md5 from 'md5';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,9 @@ export class ProfileComponent implements OnInit {
   @Output() edit = new EventEmitter();
   @Output() delete = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
   }

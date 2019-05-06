@@ -19,7 +19,7 @@
       <div class="user-info__alt-info">
         {{ currentUser?.bio }}
       </div>
-      <div>
+      <div *ngIf="auth.user.id === currentUser?.id">
         <button 
           class="edit-profile-button"
           (click)="editUser()"
@@ -27,7 +27,7 @@
           Edit Profile
         </button>
       </div>
-      <div>
+      <div *ngIf="auth.user.id === currentUser?.id">
         <button 
           class="delete-profile-button"
           (click)="deleteUser()"
