@@ -1,6 +1,6 @@
 <div class="profile-card">
   <div 
-    *ngIf="auth.user.id.toString() === project.authorId"
+    *ngIf="auth.user.id.toString() === project.authorId || auth.user.role === 'admin'"
     class="profile-card__edit">
     <button 
       class="edit__button"
@@ -8,7 +8,7 @@
     >Edit</button>
   </div>
   <div 
-    *ngIf="auth.user.id.toString() === project.authorId"
+    *ngIf="auth.user.id.toString() === project.authorId || auth.user.role === 'admin'"
     class="profile-card__delete">
     <button 
       class="delete__button"

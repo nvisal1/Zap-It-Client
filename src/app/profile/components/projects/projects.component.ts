@@ -19,6 +19,7 @@ export class ProjectsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.auth.user);
   }
 
   startProject(id: string) {
