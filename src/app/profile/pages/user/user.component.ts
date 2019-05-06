@@ -12,6 +12,7 @@ import { NavbarService } from 'src/app/core/navbar.service';
 import { DeleteUserComponent } from '../../components/delete-user/delete-user.component';
 import { EditProjectComponent } from '../../components/edit-project/edit-project.component';
 import { DeleteProjectComponent } from '../../components/delete-project/delete-project.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -24,14 +25,13 @@ export class UserComponent implements OnInit {
   currentUser: any;
   userSubscription: Subscription;
   projectsSubscription: Subscription;
-  environmentsSubscription: Subscription;
   startProjectSubscription: Subscription;
   stopProjectSubscription: Subscription;
 
   currentUserProjects: any;
-  currentUserEnvironments: any;
 
   constructor(
+    private route: ActivatedRoute,
     private apollo: Apollo,
     public dialog: MatDialog,
     private auth: AuthService,
@@ -40,10 +40,26 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
 
+    this.nav.show();
+
+    this.route.queryParamMap.subscribe(async params => {
+      const paramObj = {...params.keys, ...params};
+      if (paramObj['params']['user']) {
+        const userId = paramObj['params']['user'];
+        this.getUser(userId);
+        this.fetchProjects(userId);
+      } else {
+        this.currentUser = this.auth.user;
+        this.fetchProjects(this.currentUser.id);
+      }
+    });
+  }
+
+  fetchProjects(userId: string) {
     const currentUserProjectsQuery = gql`
       query {
         userProjects (
-          authorId: "${this.auth.user['id']}"
+          authorId: "${userId}"
         ) {
           id
           name
@@ -56,39 +72,12 @@ export class UserComponent implements OnInit {
       }
     `;
 
-    const currentUserEnvironmentsQuery = gql`
-      query {
-        getUserEnvironments (
-          authorId: "${this.auth.user['id']}"
-        ) {
-          id
-          docker
-          git
-          node
-          authorId
-          name
-        }
-      }
-    `;
-
-    this.nav.show();
-
-    this.currentUser = this.auth.user;
-
     this.projectsSubscription = this.apollo.watchQuery<any>({
       query: currentUserProjectsQuery
     })
     .valueChanges
     .subscribe(({data}) => {
       this.currentUserProjects = data.userProjects;
-    });
-
-    this.environmentsSubscription = this.apollo.watchQuery<any>({
-      query: currentUserEnvironmentsQuery
-    })
-    .valueChanges
-    .subscribe(({data}) => {
-      this.currentUserEnvironments = data.getUserEnvironments;
     });
   }
 
@@ -180,6 +169,32 @@ export class UserComponent implements OnInit {
       data: {
         project: this.currentUserProjects.filter(project => project.id === projectId)[0],
       }
+    });
+  }
+
+  getUser(userId: string) {
+    const getUserQuery = gql`
+      query{
+        user(
+          id:"${userId}"
+        )
+        {
+          id
+          name
+          username
+          email
+          jobType
+          bio
+        }
+      }
+    `;
+
+    this.userSubscription = this.apollo.watchQuery<any>({
+      query: getUserQuery
+    })
+    .valueChanges
+    .subscribe(({data, errors}) => {
+      this.currentUser = data.user;
     });
   }
 }
