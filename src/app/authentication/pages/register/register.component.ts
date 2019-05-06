@@ -33,8 +33,6 @@ export class RegisterComponent implements OnInit {
     password: string,
   }) {
 
-    console.log(params);
-
     const register = gql`
       query {
         register(

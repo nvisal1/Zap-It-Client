@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import { AuthService } from 'src/app/core/auth.service';
 import gql from 'graphql-tag';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-user',
@@ -14,6 +15,7 @@ export class DeleteUserComponent implements OnInit {
   deleteUserSubscription: Subscription;
 
   constructor(
+    private router: Router,
     private apollo: Apollo,
     private auth: AuthService,
   ) { }
@@ -25,7 +27,7 @@ export class DeleteUserComponent implements OnInit {
     const deleteUser = gql`
       query {
         deleteUser(
-          id: ${this.auth.user['id']}
+          id: "${this.auth.user['id']}"
         )
       }
     `;
@@ -36,6 +38,7 @@ export class DeleteUserComponent implements OnInit {
     .valueChanges
     .subscribe(({data}) => {
       this.auth.logout();
+      this.router.navigate(['/login']);
     });
 
   }
