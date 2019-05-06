@@ -164,7 +164,7 @@ export class UserComponent implements OnInit {
 
   openEditProjectModal(projectId: string) {
     this.dialog.open(EditProjectComponent, {
-      height: '500px',
+      height: '900px',
       width: '700px',
       data: {
         project: this.currentUserProjects.filter(project => project.id === projectId)[0],

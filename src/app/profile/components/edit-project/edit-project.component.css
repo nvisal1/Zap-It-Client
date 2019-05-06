@@ -20,3 +20,11 @@
     outline: none;
     margin-bottom: 10px;
 }
+
+.new-project__frameworks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
