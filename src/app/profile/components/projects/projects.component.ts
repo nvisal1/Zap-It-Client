@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,12 +8,15 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
   @Input() projects: [];
+  @Input() currentUser: {};
   @Output() newProject = new EventEmitter();
   @Output() projectId = new EventEmitter();
   @Output() editProject = new EventEmitter();
   @Output() deleteProject = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
   }
