@@ -89,6 +89,7 @@ export class EditProjectComponent implements OnInit {
   submit() {
     const editProject = gql`query{
       editProject(
+        id: "${this.data['project']['id']}",
         name: "${this.form.value.name}",
         url: "${this.form.value.url}",
         description: "${this.form.value.description}",
@@ -106,7 +107,6 @@ export class EditProjectComponent implements OnInit {
     })
     .valueChanges
     .subscribe(({data, errors}) => {
-      console.log(data);
       this.dialogRef.close();
     });
   }
