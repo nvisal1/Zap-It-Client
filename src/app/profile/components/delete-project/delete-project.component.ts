@@ -37,6 +37,7 @@ export class DeleteProjectComponent implements OnInit {
     .valueChanges
     .subscribe(({data}) => {
       console.log(data);
+      this.dialogRef.close();
     });
 
   }

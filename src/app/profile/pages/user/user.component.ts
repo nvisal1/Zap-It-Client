@@ -248,7 +248,6 @@ export class UserComponent implements OnInit {
   }
 
   removeFavorite(projectId: string) {
-    console.log(projectId);
     const removeFavoriteQuery = gql`
       query{
         removeFromFavorites(

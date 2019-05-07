@@ -42,6 +42,7 @@ export class NewProjectComponent implements OnInit {
   constructor(
     private apollo: Apollo,
     private auth: AuthService,
+    public dialogRef: MatDialogRef<NewProjectComponent>
   ) { }
 
   ngOnInit() {
@@ -74,6 +75,7 @@ export class NewProjectComponent implements OnInit {
     .valueChanges
     .subscribe(({data, errors}) => {
       console.log(data);
+      this.dialogRef.close();
     });
   }
 

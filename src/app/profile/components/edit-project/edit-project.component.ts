@@ -107,6 +107,7 @@ export class EditProjectComponent implements OnInit {
     .valueChanges
     .subscribe(({data, errors}) => {
       console.log(data);
+      this.dialogRef.close();
     });
   }
 

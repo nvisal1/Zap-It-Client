@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import { AuthService } from 'src/app/core/auth.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-edit-user',
@@ -25,6 +26,7 @@ export class EditUserComponent implements OnInit {
   constructor(
     private apollo: Apollo,
     private auth: AuthService,
+    public dialogRef: MatDialogRef<EditUserComponent>
   ) { }
 
   ngOnInit() {}
@@ -47,6 +49,7 @@ export class EditUserComponent implements OnInit {
     .valueChanges
     .subscribe(({data, errors}) => {
       console.log(data);
+      this.dialogRef.close();
     });
   }
 
