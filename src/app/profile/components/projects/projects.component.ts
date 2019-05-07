@@ -13,14 +13,13 @@ export class ProjectsComponent implements OnInit {
   @Output() projectId = new EventEmitter();
   @Output() editProject = new EventEmitter();
   @Output() deleteProject = new EventEmitter();
+  @Output() favoriteProject = new EventEmitter();
 
   constructor(
     public auth: AuthService
   ) { }
 
-  ngOnInit() {
-    console.log(this.auth.user);
-  }
+  ngOnInit() {}
 
   startProject(id: string) {
     this.projectId.emit(id);
@@ -36,5 +35,9 @@ export class ProjectsComponent implements OnInit {
 
   onDeleteProject(projectId: string) {
     this.deleteProject.emit(projectId);
+  }
+
+  onFavoriteProject(projectId: string) {
+    this.favoriteProject.emit(projectId);
   }
 }

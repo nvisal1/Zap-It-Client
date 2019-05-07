@@ -197,4 +197,23 @@ export class UserComponent implements OnInit {
       this.currentUser = data.user;
     });
   }
+
+  addToFavorites(projectId: string) {
+    const addToFavoritesQuery = gql`
+      query{
+        addToFavorites(
+          userId: "${this.auth.user['id']}"
+          projectId: "${projectId}"
+        )
+      }
+    `;
+
+    this.userSubscription = this.apollo.watchQuery<any>({
+      query: addToFavoritesQuery
+    })
+    .valueChanges
+    .subscribe(({data, errors}) => {
+      console.log(data);
+    });
+  }
 }

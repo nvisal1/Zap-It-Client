@@ -12,6 +12,7 @@ export class ProfileCardComponent implements OnInit {
   @Output() projectId = new EventEmitter();
   @Output() editProject = new EventEmitter();
   @Output() deleteProject = new EventEmitter();
+  @Output() favoriteProject = new EventEmitter();
 
   constructor(
     public auth: AuthService
@@ -29,5 +30,9 @@ export class ProfileCardComponent implements OnInit {
 
   delete() {
     this.deleteProject.emit(this.project.id);
+  }
+
+  favorite() {
+    this.favoriteProject.emit(this.project.id);
   }
 }

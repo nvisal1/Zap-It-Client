@@ -15,6 +15,12 @@
       (click)="delete()"
     >Delete</button>
   </div>
+  <div 
+    *ngIf="auth.user.id.toString() !== project.authorId"
+    class="profile-card__favorite"
+    (click)="favorite()">
+    Favorite
+  </div>
 
   <div class="profile-card__start" (click)="startProject()">
     Start
