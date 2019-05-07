@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
@@ -19,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
 
   loading: boolean;
   currentUser: any;
@@ -264,5 +264,13 @@ export class UserComponent implements OnInit {
     .subscribe(({data, errors}) => {
       console.log(data);
     });
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+    this.projectsSubscription.unsubscribe();
+    this.startProjectSubscription.unsubscribe();
+    this.stopProjectSubscription.unsubscribe();
+    this.favoriteProjectsSubscription.unsubscribe();
   }
 }

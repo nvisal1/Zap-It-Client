@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavbarService } from 'src/app/core/navbar.service';
 import gql from 'graphql-tag';
 import { Apollo } from 'apollo-angular';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   registerSubscription: Subscription;
 
@@ -60,4 +60,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.registerSubscription.unsubscribe();
+  }
 }

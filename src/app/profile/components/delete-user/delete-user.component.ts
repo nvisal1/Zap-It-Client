@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import { AuthService } from 'src/app/core/auth.service';
@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material';
   templateUrl: './delete-user.component.html',
   styleUrls: ['./delete-user.component.css']
 })
-export class DeleteUserComponent implements OnInit {
+export class DeleteUserComponent implements OnInit, OnDestroy {
 
   deleteUserSubscription: Subscription;
 
@@ -44,5 +44,9 @@ export class DeleteUserComponent implements OnInit {
       this.dialogRef.close();
     });
 
+  }
+
+  ngOnDestroy() {
+    this.deleteUserSubscription.unsubscribe();
   }
 }

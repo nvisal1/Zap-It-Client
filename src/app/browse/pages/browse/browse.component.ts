@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { Apollo } from 'apollo-angular';
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.css']
 })
-export class BrowseComponent implements OnInit {
+export class BrowseComponent implements OnInit, OnDestroy {
 
   query: string;
   searchSubscription: Subscription;
@@ -61,5 +61,10 @@ export class BrowseComponent implements OnInit {
     .subscribe(({data, errors}) => {
       this.results = data.searchProjects;
     });
+  }
+
+  ngOnDestroy() {
+    this.navigationSubscription.unsubscribe();
+    this.searchSubscription.unsubscribe();
   }
 }

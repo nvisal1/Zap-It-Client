@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/auth.service';
   templateUrl: './edit-project.component.html',
   styleUrls: ['./edit-project.component.css']
 })
-export class EditProjectComponent implements OnInit {
+export class EditProjectComponent implements OnInit, OnDestroy {
 
   fetchEnvironmentSubscription: Subscription;
   frameworkSubscription: Subscription;
@@ -113,5 +113,11 @@ export class EditProjectComponent implements OnInit {
 
   selectFramework(id: number) {
     this.selectedFrameworkId = id;
+  }
+
+  ngOnDestroy() {
+    this.fetchEnvironmentSubscription.unsubscribe();
+    this.frameworkSubscription.unsubscribe();
+    this.submitSubscription.unsubscribe();
   }
 }

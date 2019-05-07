@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
@@ -8,7 +8,7 @@ import { Apollo } from 'apollo-angular';
   templateUrl: './browse-card.component.html',
   styleUrls: ['./browse-card.component.css']
 })
-export class BrowseCardComponent implements OnInit {
+export class BrowseCardComponent implements OnInit, OnDestroy {
 
   @Input() project: {};
   author: {};
@@ -41,4 +41,7 @@ export class BrowseCardComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.authorSubscription.unsubscribe();
+  }
 }

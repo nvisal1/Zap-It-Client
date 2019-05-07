@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 const getAllFrameworks = gql`
   query {
@@ -23,7 +23,7 @@ const getAllFrameworks = gql`
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.css']
 })
-export class NewProjectComponent implements OnInit {
+export class NewProjectComponent implements OnInit, OnDestroy {
 
   frameworkSubscription: Subscription;
   frameworks: [];
@@ -81,5 +81,10 @@ export class NewProjectComponent implements OnInit {
 
   selectFramework(id: number) {
     this.selectedFrameworkId = id;
+  }
+
+  ngOnDestroy() {
+    this.frameworkSubscription.unsubscribe();
+    this.submitSubscription.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
 import { Apollo } from 'apollo-angular';
@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   templateUrl: './delete-project.component.html',
   styleUrls: ['./delete-project.component.css']
 })
-export class DeleteProjectComponent implements OnInit {
+export class DeleteProjectComponent implements OnInit, OnDestroy{
 
   deleteProjectSubscription: Subscription;
 
@@ -40,6 +40,10 @@ export class DeleteProjectComponent implements OnInit {
       this.dialogRef.close();
     });
 
+  }
+
+  ngOnDestroy() {
+    this.deleteProjectSubscription.unsubscribe();
   }
 
 }

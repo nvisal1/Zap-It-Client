@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditUserComponent implements OnInit, OnDestroy {
 
   editUserSubscription: Subscription;
 
@@ -51,6 +51,10 @@ export class EditUserComponent implements OnInit {
       console.log(data);
       this.dialogRef.close();
     });
+  }
+
+  ngOnDestroy() {
+    this.editUserSubscription.unsubscribe();
   }
 
 }
