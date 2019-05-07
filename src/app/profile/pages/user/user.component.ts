@@ -246,4 +246,24 @@ export class UserComponent implements OnInit {
       console.log(data);
     });
   }
+
+  removeFavorite(projectId: string) {
+    console.log(projectId);
+    const removeFavoriteQuery = gql`
+      query{
+        removeFromFavorites(
+          userId: "${this.auth.user['id']}"
+          projectId: "${projectId}"
+        )
+      }
+    `;
+
+    this.userSubscription = this.apollo.watchQuery<any>({
+      query: removeFavoriteQuery
+    })
+    .valueChanges
+    .subscribe(({data, errors}) => {
+      console.log(data);
+    });
+  }
 }

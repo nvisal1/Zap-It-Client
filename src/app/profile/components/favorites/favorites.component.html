@@ -7,6 +7,8 @@
     <div class="projects__cards" >
       <app-profile-card class="cards__project" *ngFor="let project of projects"
         [project]="project"
+        [isFavorite]="true"
+        (removeFavoriteProject)="removeFavorite($event)"
       ></app-profile-card>
     </div>
   </div>

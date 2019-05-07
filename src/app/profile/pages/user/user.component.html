@@ -19,6 +19,7 @@
       ></app-projects>
       <app-favorites
         [projects]="currentUserFavoriteProjects"
+        (removeFavoriteProject)="removeFavorite($event)"
       ></app-favorites>
     </div>
   </div>

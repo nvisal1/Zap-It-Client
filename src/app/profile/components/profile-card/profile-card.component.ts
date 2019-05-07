@@ -8,11 +8,13 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class ProfileCardComponent implements OnInit {
   @Input() project: any;
+  @Input() isFavorite = false;
 
   @Output() projectId = new EventEmitter();
   @Output() editProject = new EventEmitter();
   @Output() deleteProject = new EventEmitter();
   @Output() favoriteProject = new EventEmitter();
+  @Output() removeFavoriteProject = new EventEmitter();
 
   constructor(
     public auth: AuthService
@@ -34,5 +36,9 @@ export class ProfileCardComponent implements OnInit {
 
   favorite() {
     this.favoriteProject.emit(this.project.id);
+  }
+
+  removeFavorite() {
+    this.removeFavoriteProject.emit(this.project.id);
   }
 }
