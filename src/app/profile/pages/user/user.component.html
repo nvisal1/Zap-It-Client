@@ -17,8 +17,6 @@
         (deleteProject)="openDeleteProjectModal($event)"
         (favoriteProject)="addToFavorites($event)"
       ></app-projects>
-    </div>
-    <div class="profile__projects">
       <app-favorites
         [projects]="currentUserFavoriteProjects"
       ></app-favorites>

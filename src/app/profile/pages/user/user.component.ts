@@ -91,7 +91,13 @@ export class UserComponent implements OnInit {
         fetchUserFavorites (
           userId: "${userId}"
         ) {
+          id
           name
+          url
+          description
+          authorId
+          thumbnail
+          environmentId
         }
       }
     `;
