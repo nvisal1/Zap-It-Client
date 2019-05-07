@@ -28,6 +28,7 @@ export class UserComponent implements OnInit, OnDestroy {
   startProjectSubscription: Subscription;
   stopProjectSubscription: Subscription;
   favoriteProjectsSubscription: Subscription;
+  removeFavoriteSubscription: Subscription;
 
   currentUserProjects: any;
   currentUserFavoriteProjects: any;
@@ -156,7 +157,10 @@ export class UserComponent implements OnInit, OnDestroy {
           query: stopProject,
         })
         .valueChanges
-        .subscribe(() => {});
+        .subscribe(() => {
+          this.startProjectSubscription.unsubscribe();
+          this.stopProjectSubscription.unsubscribe();
+        });
       });
     });
   }
@@ -225,6 +229,7 @@ export class UserComponent implements OnInit, OnDestroy {
     .valueChanges
     .subscribe(({data, errors}) => {
       this.currentUser = data.user;
+      this.userSubscription.unsubscribe();
     });
   }
 
@@ -238,12 +243,12 @@ export class UserComponent implements OnInit, OnDestroy {
       }
     `;
 
-    this.userSubscription = this.apollo.watchQuery<any>({
+    this.favoriteProjectsSubscription = this.apollo.watchQuery<any>({
       query: addToFavoritesQuery
     })
     .valueChanges
     .subscribe(({data, errors}) => {
-      console.log(data);
+      this.favoriteProjectsSubscription.unsubscribe();
     });
   }
 
@@ -257,20 +262,17 @@ export class UserComponent implements OnInit, OnDestroy {
       }
     `;
 
-    this.userSubscription = this.apollo.watchQuery<any>({
+    this.removeFavoriteSubscription = this.apollo.watchQuery<any>({
       query: removeFavoriteQuery
     })
     .valueChanges
     .subscribe(({data, errors}) => {
-      console.log(data);
+      this.removeFavoriteSubscription.unsubscribe();
     });
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
     this.projectsSubscription.unsubscribe();
-    this.startProjectSubscription.unsubscribe();
-    this.stopProjectSubscription.unsubscribe();
     this.favoriteProjectsSubscription.unsubscribe();
   }
 }
