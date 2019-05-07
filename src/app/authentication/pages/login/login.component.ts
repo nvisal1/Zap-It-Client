@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { NavbarService } from 'src/app/core/navbar.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
 
   loginSubscription: Subscription;
 
@@ -50,11 +50,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       if (data.login.token) {
         this.auth.login(data.login.token);
         this.router.navigate(['/profile']);
+        this.loginSubscription.unsubscribe();
       }
     });
-  }
-
-  ngOnDestroy() {
-    this.loginSubscription.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarService } from 'src/app/core/navbar.service';
 import gql from 'graphql-tag';
 import { Apollo } from 'apollo-angular';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit {
 
   registerSubscription: Subscription;
 
@@ -56,11 +56,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       if (data.register.token) {
         this.auth.login(data.register.token);
         this.router.navigate(['/profile']);
+        this.registerSubscription.unsubscribe();
       }
     });
-  }
-
-  ngOnDestroy() {
-    this.registerSubscription.unsubscribe();
   }
 }

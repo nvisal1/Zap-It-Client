@@ -5,6 +5,7 @@
 .edit-user__header {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
 }
 
 .edit-user__input-row {

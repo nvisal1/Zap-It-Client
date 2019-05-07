@@ -1,3 +1,7 @@
+.edit-project {
+    font-family: 'Roboto', sans-serif;
+}
+
 .edit-project__header {
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
@@ -27,4 +31,14 @@
     justify-content: center;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.button-container__button {
+    height: 50px;
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    background-color: #6F8AB7;
+    border: none;
+    outline: none;
 }
