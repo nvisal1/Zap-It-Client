@@ -1,0 +1,12 @@
+<div class="projects">
+    <div class="projects__header">
+      <div class="header__title">
+        Favorites
+      </div>
+    </div>
+    <div class="projects__cards" >
+      <app-profile-card class="cards__project" *ngFor="let project of projects"
+        [project]="project"
+      ></app-profile-card>
+    </div>
+  </div>

@@ -35,6 +35,7 @@ import { DeleteUserComponent } from './profile/components/delete-user/delete-use
 import { EditProjectComponent } from './profile/components/edit-project/edit-project.component';
 import { DeleteProjectComponent } from './profile/components/delete-project/delete-project.component';
 import { RegisterComponent } from './authentication/pages/register/register.component';
+import { FavoritesComponent } from './profile/components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RegisterComponent } from './authentication/pages/register/register.comp
     DeleteUserComponent,
     EditProjectComponent,
     DeleteProjectComponent,
-    RegisterComponent
+    RegisterComponent,
+    FavoritesComponent
   ],
   entryComponents: [
     BuildComponent,

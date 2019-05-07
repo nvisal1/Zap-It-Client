@@ -1,0 +1,39 @@
+.projects {
+   
+}
+
+.projects__header {
+    font-size: 50px;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header__title {
+    flex: 1;
+}
+
+.button__add-project {
+    height: 60px;
+    width: 60px;
+    color: white;
+    background-color: #6F8AB7;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    outline: none;
+}
+
+.projects__cards {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards__project {
+    width: 33%;
+    flex: 1;
+}

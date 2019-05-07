@@ -27,8 +27,10 @@ export class UserComponent implements OnInit {
   projectsSubscription: Subscription;
   startProjectSubscription: Subscription;
   stopProjectSubscription: Subscription;
+  favoriteProjectsSubscription: Subscription;
 
   currentUserProjects: any;
+  currentUserFavoriteProjects: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,9 +50,11 @@ export class UserComponent implements OnInit {
         const userId = paramObj['params']['user'];
         this.getUser(userId);
         this.fetchProjects(userId);
+        this.fetchFavoriteProjects(userId);
       } else {
         this.currentUser = this.auth.user;
         this.fetchProjects(this.currentUser.id);
+        this.fetchFavoriteProjects(this.currentUser.id);
       }
     });
   }
@@ -78,6 +82,26 @@ export class UserComponent implements OnInit {
     .valueChanges
     .subscribe(({data}) => {
       this.currentUserProjects = data.userProjects;
+    });
+  }
+
+  fetchFavoriteProjects(userId: string) {
+    const currentUserFavoriteProjectsQuery = gql`
+      query {
+        fetchUserFavorites (
+          userId: "${userId}"
+        ) {
+          name
+        }
+      }
+    `;
+
+    this.favoriteProjectsSubscription = this.apollo.watchQuery<any>({
+      query: currentUserFavoriteProjectsQuery
+    })
+    .valueChanges
+    .subscribe(({data}) => {
+      this.currentUserFavoriteProjects = data.fetchUserFavorites;
     });
   }
 
