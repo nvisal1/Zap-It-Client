@@ -272,7 +272,6 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.projectsSubscription.unsubscribe();
-    this.favoriteProjectsSubscription.unsubscribe();
+   
   }
 }
